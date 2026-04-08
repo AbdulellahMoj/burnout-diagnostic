@@ -1,103 +1,63 @@
 # Burnout Diagnostic Awareness Project
 
-## Project Purpose
+Burnout can quietly affect your focus, energy, mood, relationships, and performance over time.
+Many people treat it as "just stress" and keep going until they hit a wall.
+This website was made to help people pause, reflect honestly, and take practical steps early. 🌱
 
-This project is an awareness and education website about burnout.
+## Why Learning Burnout Matters
 
-It was created for Assignment 4 in the CBI course (Work Environment Skills) to:
+- Burnout is not just being tired. It is usually a pattern of emotional exhaustion, detachment, and reduced sense of effectiveness.
+- Early awareness helps protect sleep, boundaries, recovery, and long-term health.
+- Learning about burnout helps people support classmates, teammates, and coworkers with empathy instead of judgment. 🤝
 
-- spread awareness about occupational and academic burnout,
-- help users reflect on their own current state,
-- provide practical, supportive guidance for recovery and prevention.
+## How This Project Works
 
-This is intentionally not a highly technical product. The goal is clear communication, accessibility, and useful public awareness.
+This project combines learning + self-reflection in a simple flow:
 
-## AI and Vibe-Coded Context
+- Read clear sections that explain what burnout is and how it can show up in real life.
+- Take a guided assessment to check your current pattern.
+- Get practical next steps you can actually use.
 
-This project was built with AI assistance and vibe-coded iteration.
+This is an educational awareness project, not a clinical diagnosis tool. 🩺
 
-The intention is educational impact: sharing knowledge in a practical and engaging way so users can learn, reflect, and discuss burnout more openly.
+## How the Website Works
 
-## Important Scope Note
+The website is designed to feel calm and easy, especially when someone is already stressed:
 
-This app is an educational screener, not a clinical diagnosis tool.
+- Quick sections for fast scanning (no heavy jargon).
+- A direct path to the quiz when users are ready.
+- Printable material for class/team discussion.
+- A supportive AI chat for reflection and awareness.
 
-- Results are guidance-oriented and should not replace professional medical or mental-health care.
-- If someone feels overwhelmed, unsafe, or in crisis, they should contact a licensed professional or local emergency support immediately.
+## What Happens in the Quiz Section
 
-## Features
+The quiz is intentionally interactive and consistency-aware:
 
-- Burnout learning content in a scan-friendly format
-- Adaptive burnout self-assessment (expanded question set with consistency checks)
-- Confidence indicators for contradictory or rushed responses
-- Action-focused recommendations by risk profile
-- Printable reflection PDF for classroom/team discussion
-- Supportive AI chat for psychoeducation-style conversation
+- It uses an expanded adaptive question set (not a short one-pass checklist).
+- Some ideas appear again in different wording after a few questions to check consistency.
+- It flags rushed patterns and contradictory answers.
+- It estimates risk across core dimensions: Exhaustion, Cynicism, and Efficacy.
+- It gives confidence guidance so users know whether to retake the test more carefully.
 
-## Tech Stack (Simple and Practical)
+The goal is honesty and self-awareness, not "passing" the test. 💬
 
-- React + Vite
-- TypeScript
-- Tailwind CSS
-- Vercel Serverless Function for AI chat endpoint
+## How We Give Credit and Try to Help
 
-## Local Run
+We aim to help people in practical ways:
 
-Prerequisites:
+- Use clear language for what users may be feeling.
+- Offer realistic actions, not empty motivational lines.
+- Encourage support-seeking when stress becomes unsafe.
+- Respect that burnout is often connected to systems and environment, not just personal weakness.
 
-- Node.js 20+
-- npm 10+
+Credits and trust come from transparent references to established burnout research and public health frameworks. 📚
 
-Steps:
-
-1. Install dependencies
-
-   npm install
-
-2. Create local env file
-
-   copy .env.example .env.local
-
-3. Add your API key
-
-   GEMINI_API_KEY=your_key_here
-
-4. Run locally
-
-   npm run dev
-
-## Validation
-
-- Type check:
-
-  npm run lint
-
-- Production build:
-
-  npm run build
-
-## Deploy (Vercel)
-
-1. Import this GitHub repository in Vercel
-2. Add environment variable in Vercel settings:
-
-   GEMINI_API_KEY=your_key_here
-
-3. Deploy
-
-Notes:
-
-- AI chat is served from /api/chat
-- vercel.json includes SPA fallback routing
-
-## Scientific and Trust References
-
-Core concepts and educational guidance in this project are based on established burnout literature:
+## Scientific References
 
 1. Maslach, C., & Leiter, M. P. (2016). Understanding the burnout experience: recent research and its implications for psychiatry. World Psychiatry, 15(2), 103-111.
-2. World Health Organization. (2019). Burn-out an occupational phenomenon (ICD-11).
+2. World Health Organization. (2019). Burn-out as an occupational phenomenon (ICD-11).
 3. Salvagioni, D. A. J., et al. (2017/2021 updates). Physical, psychological and occupational consequences of job burnout: A systematic review.
 4. Leiter, M. P., & Maslach, C. (2009). Nurse turnover: the mediating role of burnout.
-5. Schaufeli, W. B., Leiter, M. P., Maslach, C., & Jackson, S. E. Work on MBI and MBI-General Survey (MBI-GS) dimensions (Exhaustion, Cynicism, Professional Efficacy).
+5. Schaufeli, W. B., Leiter, M. P., Maslach, C., & Jackson, S. E. MBI / MBI-GS body of work on Exhaustion, Cynicism, and Professional Efficacy.
 
-Readers are encouraged to verify and explore these references directly.
+Made for the CPIS Work Environment Skills course, with help from AI and Claude-style vibe coding. ✨
