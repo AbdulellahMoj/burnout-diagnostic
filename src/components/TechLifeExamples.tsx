@@ -46,7 +46,9 @@ const techScenarios = [
   }
 ];
 
-function ScenarioImage({ src, alt, phase }: { src: string, alt: string, phase: any }) {
+type TechScenario = (typeof techScenarios)[number];
+
+function ScenarioImage({ src, alt, phase }: { src: string; alt: string; phase: TechScenario }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (

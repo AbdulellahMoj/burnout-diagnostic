@@ -10,27 +10,27 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-xl bg-clay-lemon-500 flex items-center justify-center shadow-clay-card group-hover:rotate-12 transition-transform text-lg">
             🧠
           </div>
-          <span className="font-bold tracking-tight text-ui-text text-lg">CPIS3XX</span>
+          <span className="font-bold tracking-tight text-ui-text text-lg">Burnout Compass</span>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-5 md:gap-8">
           <Link 
             to="/" 
             className={`text-[15px] font-bold transition-colors ${location.pathname === '/' ? 'text-clay-lemon-500' : 'text-ui-muted hover:text-ui-text'}`}
           >
-            📚 Material
+            Learn
           </Link>
           <Link 
             to="/quiz" 
             className={`text-[15px] font-bold transition-colors flex items-center gap-2 ${location.pathname === '/quiz' ? 'text-clay-pomegranate-400' : 'text-ui-muted hover:text-ui-text'}`}
           >
-            🩺 Diagnostic
+            Quiz
           </Link>
           <Link 
             to="/quiz"
-            className="hidden md:inline-flex px-5 py-2.5 bg-clay-matcha-600 text-white rounded-xl text-sm font-bold tracking-wider hover-brutalist-sm focus-dashed border border-clay-matcha-800"
+            className="hidden sm:inline-flex px-5 py-2.5 bg-clay-matcha-600 text-white rounded-xl text-sm font-bold tracking-wider hover-brutalist-sm focus-dashed border border-clay-matcha-800"
           >
-            Take the Test
+            Start Quiz
           </Link>
         </div>
       </div>

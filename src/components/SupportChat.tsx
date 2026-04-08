@@ -29,12 +29,31 @@ export default function SupportChat() {
     scrollToBottom();
   }, [messages]);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isLoading) return;
 
     const userMsg = input.trim();
+    const userEntry: Message = {
+      id: Date.now().toString(),
+      role: 'user',
+      content: userMsg
+    };
+
+    const nextMessages = [...messages, userEntry];
+
     setInput('');
-    setMessages(prev => [...prev, { id: Date.now().toString(), role: 'user', content: userMsg }]);
+    setMessages(nextMessages);
     setIsLoading(true);
 
     try {
@@ -44,7 +63,7 @@ export default function SupportChat() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          messages,
+          messages: nextMessages,
           userMessage: userMsg
         })
       });
@@ -80,6 +99,8 @@ export default function SupportChat() {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 bg-clay-lemon-500 text-clay-cream rounded-full shadow-clay-hover flex items-center justify-center z-50 hover:bg-clay-lemon-400 transition-colors focus-dashed hover-brutalist"
         aria-label="Open support chat"
+        aria-expanded={isOpen}
+        aria-controls="support-chat-panel"
       >
         <MessageCircle size={24} />
       </motion.button>
@@ -92,6 +113,7 @@ export default function SupportChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            id="support-chat-panel"
             className="fixed bottom-24 right-6 w-[350px] max-w-[calc(100vw-3rem)] h-[500px] max-h-[calc(100vh-8rem)] bg-ui-bg border border-ui-border rounded-3xl shadow-clay-hover flex flex-col z-50 overflow-hidden"
           >
             {/* Header */}
@@ -108,6 +130,7 @@ export default function SupportChat() {
               <button 
                 onClick={() => setIsOpen(false)}
                 className="text-clay-silver hover:text-ui-text transition-colors p-1 rounded-full hover:bg-ui-border"
+                aria-label="Close support chat"
               >
                 <X size={18} />
               </button>
@@ -152,6 +175,7 @@ export default function SupportChat() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type a message..."
+                  disabled={isLoading}
                   className="flex-1 bg-ui-bg border border-ui-border rounded-full px-4 py-2 text-[15px] text-ui-text focus:outline-none focus:border-clay-silver transition-colors"
                 />
                 <button 

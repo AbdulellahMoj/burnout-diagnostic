@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { motion } from 'motion/react';
 import Quiz from '../components/Quiz';
-import PrintablePDF from '../components/PrintablePDF';
 import { FileText, MonitorPlay } from 'lucide-react';
+
+const PrintablePDF = lazy(() => import('../components/PrintablePDF'));
 
 export default function QuizPage() {
   const [activeTab, setActiveTab] = useState<'interactive' | 'printable'>('interactive');
@@ -43,7 +44,19 @@ export default function QuizPage() {
       </div>
 
       <div className="w-full max-w-3xl">
-        {activeTab === 'interactive' ? <Quiz /> : <PrintablePDF />}
+        {activeTab === 'interactive' ? (
+          <Quiz />
+        ) : (
+          <Suspense
+            fallback={
+              <div className="w-full bg-ui-warm border-2 border-ui-border rounded-3xl p-10 text-center shadow-clay-card">
+                <p className="text-clay-charcoal">Loading printable view...</p>
+              </div>
+            }
+          >
+            <PrintablePDF />
+          </Suspense>
+        )}
       </div>
     </motion.div>
   );

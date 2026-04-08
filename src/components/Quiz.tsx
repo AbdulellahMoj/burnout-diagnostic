@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { quizQuestions, answerScale, quizResults } from '../data/content';
 import { ArrowRight, RotateCcw, Activity } from 'lucide-react';
 
+const QUESTION_COUNT = quizQuestions.length;
+
 export default function Quiz() {
   const [currentQ, setCurrentQ] = useState(0);
-  const [scores, setScores] = useState<number[]>(new Array(15).fill(0));
+  const [scores, setScores] = useState<number[]>(new Array(QUESTION_COUNT).fill(0));
   const [showResult, setShowResult] = useState(false);
 
   const handleSelect = (val: number) => {
@@ -16,7 +18,7 @@ export default function Quiz() {
 
   const handleNext = () => {
     if (scores[currentQ] === 0) return;
-    if (currentQ < 14) {
+    if (currentQ < QUESTION_COUNT - 1) {
       setCurrentQ(prev => prev + 1);
     } else {
       setShowResult(true);
@@ -24,14 +26,14 @@ export default function Quiz() {
   };
 
   const handleRetake = () => {
-    setScores(new Array(15).fill(0));
+    setScores(new Array(QUESTION_COUNT).fill(0));
     setCurrentQ(0);
     setShowResult(false);
   };
 
   if (showResult) {
     const total = scores.reduce((a, b) => a + b, 0);
-    const result = quizResults.find(r => total >= r.range[0] && total <= r.range[1]) || quizResults[3];
+    const result = quizResults.find((r) => total >= r.range[0] && total <= r.range[1]) || quizResults[quizResults.length - 1];
 
     return (
       <motion.div 
@@ -75,7 +77,7 @@ export default function Quiz() {
   }
 
   const q = quizQuestions[currentQ];
-  const progress = (currentQ / 15) * 100;
+  const progress = (currentQ / QUESTION_COUNT) * 100;
 
   return (
     <div className="max-w-2xl mx-auto w-full">
@@ -85,7 +87,7 @@ export default function Quiz() {
           Burnout Diagnostic
         </div>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ui-text mb-2">Current Status</h2>
-        <p className="text-sm text-clay-charcoal font-mono">15 questions · Honest answers only</p>
+        <p className="text-sm text-clay-charcoal font-mono">{QUESTION_COUNT} questions · Honest answers only</p>
         
         <div className="w-full h-4 bg-ui-warm border-2 border-ui-border rounded-full mt-8 mb-3 overflow-hidden p-0.5">
           <motion.div 
@@ -95,7 +97,7 @@ export default function Quiz() {
             transition={{ duration: 0.3 }}
           />
         </div>
-        <p className="font-mono text-xs text-clay-silver font-bold uppercase tracking-widest">Question {currentQ + 1} / 15</p>
+        <p className="font-mono text-xs text-clay-silver font-bold uppercase tracking-widest">Question {currentQ + 1} / {QUESTION_COUNT}</p>
       </div>
 
       <motion.div 
@@ -140,7 +142,7 @@ export default function Quiz() {
               onClick={handleNext}
               className="w-full mt-8 py-4 bg-clay-lemon-500 text-black border-2 border-clay-lemon-400 rounded-xl font-bold font-mono uppercase tracking-wide hover-brutalist focus-dashed flex items-center justify-center gap-2"
             >
-              {currentQ < 14 ? 'Next Question' : 'View Results'}
+              {currentQ < QUESTION_COUNT - 1 ? 'Next Question' : 'View Results'}
               <ArrowRight size={18} />
             </motion.button>
           )}
