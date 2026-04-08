@@ -14,13 +14,13 @@ export default function QuizPage() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
-      className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-start py-12 px-6 bg-ui-bg"
+      className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-start py-8 md:py-12 px-4 sm:px-6 bg-ui-bg"
     >
       <div className="w-full max-w-3xl mb-8 flex justify-center">
-        <div className="flex bg-ui-warm p-1.5 rounded-xl border border-ui-border shadow-sm">
+        <div className="flex flex-wrap sm:flex-nowrap gap-1.5 bg-ui-warm p-1.5 rounded-xl border border-ui-border shadow-sm w-full sm:w-auto">
           <button
             onClick={() => setActiveTab('interactive')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+            className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold transition-colors min-h-11 ${
               activeTab === 'interactive' 
                 ? 'bg-ui-text text-ui-bg shadow-sm' 
                 : 'text-clay-silver hover:text-ui-text'
@@ -31,7 +31,7 @@ export default function QuizPage() {
           </button>
           <button
             onClick={() => setActiveTab('printable')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+            className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold transition-colors min-h-11 ${
               activeTab === 'printable' 
                 ? 'bg-ui-text text-ui-bg shadow-sm' 
                 : 'text-clay-silver hover:text-ui-text'

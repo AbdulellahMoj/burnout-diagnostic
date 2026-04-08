@@ -3,7 +3,7 @@ import { Battery, Brain, Users, Activity } from 'lucide-react';
 
 export default function Symptoms() {
   return (
-    <section className="py-32 px-6 bg-ui-bg border-b border-ui-border">
+    <section className="section-shell bg-ui-bg border-b border-ui-border">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Early Detection</div>

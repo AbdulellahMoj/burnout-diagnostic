@@ -79,7 +79,7 @@ function ScenarioImage({ src, alt, phase }: { src: string; alt: string; phase: T
 
 export default function TechLifeExamples() {
   return (
-    <section className="py-32 px-6 bg-ui-bg">
+    <section className="section-shell bg-ui-bg">
       <div className="max-w-5xl mx-auto w-full">
         <div className="text-center mb-20">
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Real Life</div>

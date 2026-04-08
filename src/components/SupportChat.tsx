@@ -97,7 +97,7 @@ export default function SupportChat() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-clay-lemon-500 text-clay-cream rounded-full shadow-clay-hover flex items-center justify-center z-50 hover:bg-clay-lemon-400 transition-colors focus-dashed hover-brutalist"
+        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 sm:right-6 w-14 h-14 bg-clay-lemon-500 text-clay-cream rounded-full shadow-clay-hover flex items-center justify-center z-50 hover:bg-clay-lemon-400 transition-colors focus-dashed hover-brutalist"
         aria-label="Open support chat"
         aria-expanded={isOpen}
         aria-controls="support-chat-panel"
@@ -114,7 +114,7 @@ export default function SupportChat() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             id="support-chat-panel"
-            className="fixed bottom-24 right-6 w-[350px] max-w-[calc(100vw-3rem)] h-[500px] max-h-[calc(100vh-8rem)] bg-ui-bg border border-ui-border rounded-3xl shadow-clay-hover flex flex-col z-50 overflow-hidden"
+            className="fixed bottom-[max(5.5rem,calc(env(safe-area-inset-bottom)+5.5rem))] right-4 sm:right-6 w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-8rem)] bg-ui-bg border border-ui-border rounded-3xl shadow-clay-hover flex flex-col z-50 overflow-hidden"
           >
             {/* Header */}
             <div className="p-4 border-b border-ui-border bg-ui-warm flex items-center justify-between">

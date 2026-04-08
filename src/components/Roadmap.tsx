@@ -42,7 +42,7 @@ const steps = [
 
 export default function Roadmap() {
   return (
-    <section className="py-32 px-6 bg-ui-warm border-b border-ui-border relative overflow-hidden">
+    <section className="section-shell bg-ui-warm border-b border-ui-border relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-clay-lemon-500/5 rounded-full blur-3xl"></div>

@@ -2,7 +2,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export default function Prevention() {
   return (
-    <section className="py-32 px-6 bg-ui-bg border-b border-ui-border">
+    <section className="section-shell bg-ui-bg border-b border-ui-border">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Recovery Strategies</div>

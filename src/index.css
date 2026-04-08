@@ -44,13 +44,28 @@
 }
 
 @layer base {
+  :root {
+    --shell-x: clamp(1rem, 3vw, 1.5rem);
+    --section-y: clamp(4.5rem, 9vw, 8rem);
+  }
+
   body {
     @apply bg-ui-bg text-ui-text font-sans antialiased overflow-x-hidden selection:bg-clay-lemon-500 selection:text-clay-cream;
     font-feature-settings: "kern" 1, "lnum" 1;
+    background-image:
+      radial-gradient(circle at 12% 12%, rgba(251, 189, 65, 0.08) 0, transparent 28%),
+      radial-gradient(circle at 88% 22%, rgba(59, 211, 253, 0.07) 0, transparent 30%);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold tracking-tight text-ui-text;
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    padding-inline: var(--shell-x);
+    padding-block: var(--section-y);
   }
 }
 
@@ -115,4 +130,13 @@
 
 @utility shadow-deep {
   @apply shadow-clay-hover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

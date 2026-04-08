@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export default function BurnoutExplanation() {
   return (
-    <section id="what-is-burnout" className="py-32 px-6 bg-ui-bg border-b border-ui-border">
+    <section id="what-is-burnout" className="section-shell bg-ui-bg border-b border-ui-border">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">The Definition</div>
