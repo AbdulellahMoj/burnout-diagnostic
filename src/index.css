@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Clay Dark Palette */
+  --color-clay-cream: #1a1815;
+  --color-clay-black: #f0ede8;
+  --color-clay-white: #242220;
+  --color-clay-oat: #3d3a35;
+  --color-clay-oat-light: #2e2b27;
+  --color-clay-silver: #7a766e;
+  --color-clay-charcoal: #a09c94;
+
+  /* Clay Accents */
+  --color-clay-matcha-300: #84e7a5;
+  --color-clay-matcha-600: #078a52;
+  --color-clay-matcha-800: #02492a;
+  --color-clay-slushie-500: #3bd3fd;
+  --color-clay-slushie-800: #0089ad;
+  --color-clay-lemon-400: #f8cc65;
+  --color-clay-lemon-500: #fbbd41;
+  --color-clay-ube-300: #c1b0ff;
+  --color-clay-ube-800: #43089f;
+  --color-clay-pomegranate-400: #fc7981;
+  --color-clay-blueberry-800: #01418d;
+
+  /* Map to UI variables for easy replacement */
+  --color-ui-bg: var(--color-clay-cream);
+  --color-ui-warm: var(--color-clay-white);
+  --color-ui-text: var(--color-clay-black);
+  --color-ui-muted: var(--color-clay-silver);
+  --color-ui-border: var(--color-clay-oat);
+
+  /* Keep brand colors for specific accenting, mapped to Clay */
+  --color-brand-orange: var(--color-clay-lemon-500);
+  --color-brand-blue: var(--color-clay-slushie-500);
+  --color-brand-green: var(--color-clay-matcha-300);
+  --color-brand-yellow: var(--color-clay-lemon-400);
+  --color-brand-pink: var(--color-clay-pomegranate-400);
+  --color-brand-purple: var(--color-clay-ube-300);
+}
+
+@layer base {
+  body {
+    @apply bg-ui-bg text-ui-text font-sans antialiased overflow-x-hidden selection:bg-clay-lemon-500 selection:text-clay-cream;
+    font-feature-settings: "kern" 1, "lnum" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight text-ui-text;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ui-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ui-border rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ui-muted;
+}
+
+@utility shadow-clay-card {
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 1px, rgba(0,0,0,0.04) 0px -1px 1px inset, rgba(0,0,0,0.05) 0px -0.5px 1px;
+}
+
+@utility shadow-clay-hover {
+  box-shadow: rgb(0,0,0) -5px 5px;
+}
+
+@utility shadow-clay-hover-sm {
+  box-shadow: rgb(0,0,0) -3px 3px;
+}
+
+@utility hover-brutalist {
+  transition: all 0.15s ease;
+  &:hover {
+    transform: translateY(-3px) rotateZ(-2deg);
+    box-shadow: rgb(0,0,0) -5px 5px;
+  }
+  &:active {
+    transform: translateY(2px) rotateZ(0deg);
+    box-shadow: rgb(0,0,0) 0px 0px;
+  }
+}
+
+@utility hover-brutalist-sm {
+  transition: all 0.15s ease;
+  &:hover {
+    transform: translateY(-2px) rotateZ(-1deg);
+    box-shadow: rgb(0,0,0) -3px 3px;
+  }
+  &:active {
+    transform: translateY(1px) rotateZ(0deg);
+    box-shadow: rgb(0,0,0) 0px 0px;
+  }
+}
+
+@utility focus-dashed {
+  @apply focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay-slushie-500;
+}
+
+/* Legacy classes to prevent breaking existing components */
+@utility shadow-soft {
+  @apply shadow-clay-card;
+}
+
+@utility shadow-deep {
+  @apply shadow-clay-hover;
+}
