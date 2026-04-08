@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Download, FileText } from 'lucide-react';
-import { quizQuestions } from '../data/content';
+import { assessmentMethodNote, assessmentQuestionBank } from '../data/content';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -21,24 +21,24 @@ export default function PrintablePDF() {
       // Subtitle
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
-      doc.text('Based on the Maslach Burnout Inventory (MBI)', 14, 26);
+      doc.text('MBI-GS inspired educational screener', 14, 26);
 
       // Instructions
       doc.setFontSize(11);
       doc.text('Instructions: For each statement, circle the number that best describes how often you feel this way:', 14, 36);
       doc.setFont('helvetica', 'bold');
-      doc.text('1 = Never    2 = Rarely    3 = Sometimes    4 = Often    5 = Always', 14, 42);
+      doc.text('0 = Never   1 = Few/year   2 = Monthly   3 = Few/month   4 = Weekly   5 = Few/week   6 = Daily', 14, 42);
 
       // Table Data
-      const tableData = quizQuestions.map((q, i) => [
+      const tableData = assessmentQuestionBank.map((q, i) => [
         `${i + 1}. ${q.t}`,
-        '1', '2', '3', '4', '5'
+        '0', '1', '2', '3', '4', '5', '6'
       ]);
 
       // Generate Table
       autoTable(doc, {
         startY: 48,
-        head: [['Statement', '1', '2', '3', '4', '5']],
+        head: [['Statement', '0', '1', '2', '3', '4', '5', '6']],
         body: tableData,
         theme: 'grid',
         headStyles: { 
@@ -49,11 +49,13 @@ export default function PrintablePDF() {
         },
         columnStyles: {
           0: { cellWidth: 'auto' },
-          1: { cellWidth: 12, halign: 'center' },
-          2: { cellWidth: 12, halign: 'center' },
-          3: { cellWidth: 12, halign: 'center' },
-          4: { cellWidth: 12, halign: 'center' },
-          5: { cellWidth: 12, halign: 'center' },
+          1: { cellWidth: 9, halign: 'center' },
+          2: { cellWidth: 9, halign: 'center' },
+          3: { cellWidth: 9, halign: 'center' },
+          4: { cellWidth: 9, halign: 'center' },
+          5: { cellWidth: 9, halign: 'center' },
+          6: { cellWidth: 9, halign: 'center' },
+          7: { cellWidth: 9, halign: 'center' },
         },
         styles: { 
           fontSize: 10, 
@@ -73,28 +75,11 @@ export default function PrintablePDF() {
       
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
-      doc.text('Add up the numbers you circled to get your total score (Minimum: 15, Maximum: 75).', 14, finalY + 16);
+      doc.text('Use the in-app result page for weighted subscale scoring, consistency checks, and confidence level.', 14, finalY + 16);
+      doc.text('This printable form is for reflection and discussion, not diagnosis.', 14, finalY + 22);
 
-      // Score Ranges
-      doc.setFont('helvetica', 'bold');
-      doc.text('15 - 30 (Healthy):', 14, finalY + 24);
-      doc.setFont('helvetica', 'normal');
-      doc.text('You are managing well. Keep protecting your rest.', 48, finalY + 24);
-
-      doc.setFont('helvetica', 'bold');
-      doc.text('31 - 45 (Warning):', 14, finalY + 30);
-      doc.setFont('helvetica', 'normal');
-      doc.text('Early signs of burnout. Identify drains and restructure.', 48, finalY + 30);
-
-      doc.setFont('helvetica', 'bold');
-      doc.text('46 - 55 (Moderate):', 14, finalY + 36);
-      doc.setFont('helvetica', 'normal');
-      doc.text('Meaningful burnout. Reduce active commitments.', 50, finalY + 36);
-
-      doc.setFont('helvetica', 'bold');
-      doc.text('56 - 75 (Critical):', 14, finalY + 42);
-      doc.setFont('helvetica', 'normal');
-      doc.text('High burnout. Seek support and prioritize recovery immediately.', 46, finalY + 42);
+      doc.setFontSize(8);
+      doc.text(assessmentMethodNote, 14, finalY + 30, { maxWidth: 180 });
 
       // Save the PDF
       doc.save('burnout_diagnostic.pdf');
@@ -114,7 +99,7 @@ export default function PrintablePDF() {
       <h2 className="text-2xl md:text-3xl font-bold text-ui-text mb-4">Printable Class Handout</h2>
       
       <p className="text-clay-charcoal mb-10 max-w-lg mx-auto leading-relaxed">
-        Download a clean, single-page PDF of the diagnostic tool. Perfect for printing and sharing with your class or team. It includes all 15 questions and the scoring rubric.
+        Download a printable reflection version of the screening tool. It includes the full expanded question set and frequency options.
       </p>
 
       <button

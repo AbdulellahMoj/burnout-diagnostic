@@ -8,7 +8,7 @@ export default function BurnoutExplanation() {
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">The Definition</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ui-text mb-6">What is Burnout?</h2>
           <p className="text-lg text-clay-charcoal max-w-2xl mx-auto">
-            Burnout is a state of chronic stress leading to physical and emotional exhaustion, cynicism, and a feeling of reduced accomplishment.
+            Burnout is chronic stress that outlasts recovery. It usually shows up as exhaustion, emotional distance, and lower confidence in your effectiveness.
           </p>
         </div>
 

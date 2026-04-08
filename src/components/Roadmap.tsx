@@ -54,7 +54,7 @@ export default function Roadmap() {
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">The Path Forward</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ui-text mb-6">Recovery Roadmap</h2>
           <p className="text-lg text-clay-charcoal max-w-2xl mx-auto">
-            Burnout recovery is not a weekend off. It is a deliberate, structured process of diagnosis, intervention, and healing.
+            Recovery is a process, not a day off. Use these four steps to assess, stabilize, and rebuild sustainably.
           </p>
         </div>
 

@@ -85,7 +85,7 @@ export default function TechLifeExamples() {
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Real Life</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ui-text mb-6">Burnout in Tech</h2>
           <p className="text-lg text-clay-charcoal max-w-2xl mx-auto">
-            Burnout often masquerades as "hustle" or "just getting through the semester."
+            Burnout often looks like hustle at first. Then motivation drops, recovery fails, and daily work starts to feel heavy.
           </p>
         </div>
 

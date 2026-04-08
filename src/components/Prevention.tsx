@@ -8,7 +8,7 @@ export default function Prevention() {
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Recovery Strategies</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ui-text mb-6">Restoring Your Health</h2>
           <p className="text-lg text-clay-charcoal font-normal mb-16 max-w-3xl mx-auto">
-            Burnout is not solved by pushing harder, or by collapsing. It requires deliberate action at three levels: yourself, your team, and your environment.
+            Burnout improves through consistent small changes. Focus on three levels: self-care, team support, and system-level boundaries.
           </p>
         </div>
 

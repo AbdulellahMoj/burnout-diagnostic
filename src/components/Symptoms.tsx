@@ -9,7 +9,7 @@ export default function Symptoms() {
           <div className="text-xs font-bold tracking-widest uppercase text-clay-silver mb-4">Early Detection</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ui-text mb-6">Visualizing Burnout</h2>
           <p className="text-lg text-clay-charcoal max-w-2xl mx-auto">
-            Burnout rarely announces itself. It builds slowly. Knowing the signals early is the most powerful form of intervention.
+            Burnout builds gradually. Catching the signals early gives you the best chance to recover without a full crash.
           </p>
         </div>
 
